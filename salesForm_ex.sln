@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "salesForm_ex", "salesForm_ex\salesForm_ex.csproj", "{F1A70ED0-1551-491D-B79D-88AD8508AAA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1A70ED0-1551-491D-B79D-88AD8508AAA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A70ED0-1551-491D-B79D-88AD8508AAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A70ED0-1551-491D-B79D-88AD8508AAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A70ED0-1551-491D-B79D-88AD8508AAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {790D7F9F-32EA-4143-9061-65639D8E6FD2}
+	EndGlobalSection
+EndGlobal
