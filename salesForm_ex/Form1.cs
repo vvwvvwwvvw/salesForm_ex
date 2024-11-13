@@ -29,7 +29,7 @@ namespace salesForm_ex
             while (r.Read())
             {
                 for (int i = 0; i < 6; i++)
-                fields[i] = r[i].ToString();
+                    fields[i] = r[i].ToString();
                 fields[3] = fields[3].Substring(0, 10);
                 ListViewItem row = new ListViewItem(fields);
                 saleList.Items.Add(row);
@@ -74,12 +74,12 @@ namespace salesForm_ex
             conn.Open();
             string query = String.Format("insert into sales (salecode, customer, item, date, qty, price) values (@salecode, @customer, @item, @date, @qty, @price)");
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@salecode",salecode);
-            cmd.Parameters.AddWithValue("@customer",customer);
-            cmd.Parameters.AddWithValue("@item",item);
-            cmd.Parameters.AddWithValue("@date",date);
-            cmd.Parameters.AddWithValue("@qty",qty);
-            cmd.Parameters.AddWithValue("@price",price);
+            cmd.Parameters.AddWithValue("@salecode", salecode);
+            cmd.Parameters.AddWithValue("@customer", customer);
+            cmd.Parameters.AddWithValue("@item", item);
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@qty", qty);
+            cmd.Parameters.AddWithValue("@price", price);
             cmd.ExecuteNonQuery();
             conn.Close();
             LoadList();
@@ -92,7 +92,7 @@ namespace salesForm_ex
                 conn.Open();
                 string query = String.Format("delete from sales where salecode = @salecode");
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@salecode",salecode);
+                cmd.Parameters.AddWithValue("@salecode", salecode);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 LoadList();
@@ -105,12 +105,31 @@ namespace salesForm_ex
             string query = "select customer, sum(price) from sales group by customer";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader r = cmd.ExecuteReader();
+
             txtAnalysis.Text = "고객명 \t 누적판매금액 \r\n";
             while (r.Read())
             {
                 string row = String.Format("{0}\t{1}\r\n", r[0].ToString(), r[1].ToString());
-                txtAnalysis.Text = row;
+                txtAnalysis.Text += row;
             }
+            r.Close(); 
+            conn.Close();
+        }
+
+        private void btnItemSales_Click(object sender, EventArgs e)
+        {
+            txtAnalysis.Text = "";
+            conn.Open();
+            string query = "select item, sum(price) from sales group by item";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader r = cmd.ExecuteReader();
+            txtAnalysis.Text = "제품명 \t 누적판매금액 \r\n";
+            while (r.Read())
+            {
+                string row = String.Format("{0}\t{1}\r\n", r[0].ToString(), r[1].ToString());
+                txtAnalysis.Text += row;
+            }
+            r.Close();
             conn.Close();
         }
     }

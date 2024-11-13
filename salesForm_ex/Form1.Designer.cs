@@ -141,6 +141,7 @@
             this.판매날짜,
             this.판매갯수,
             this.판매금액});
+            this.saleList.FullRowSelect = true;
             this.saleList.GridLines = true;
             this.saleList.HideSelection = false;
             this.saleList.Location = new System.Drawing.Point(12, 123);
@@ -218,12 +219,14 @@
             this.btnItemSales.TabIndex = 15;
             this.btnItemSales.Text = "제품별 판매금액 분석";
             this.btnItemSales.UseVisualStyleBackColor = true;
+            this.btnItemSales.Click += new System.EventHandler(this.btnItemSales_Click);
             // 
             // txtAnalysis
             // 
             this.txtAnalysis.Location = new System.Drawing.Point(12, 293);
             this.txtAnalysis.Multiline = true;
             this.txtAnalysis.Name = "txtAnalysis";
+            this.txtAnalysis.ReadOnly = true;
             this.txtAnalysis.Size = new System.Drawing.Size(658, 164);
             this.txtAnalysis.TabIndex = 16;
             // 
