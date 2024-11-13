@@ -17,7 +17,6 @@ namespace salesForm_ex
         public Form1()
         {
             InitializeComponent();
-           
         }
         public void LoadList()
         {
@@ -59,18 +58,19 @@ namespace salesForm_ex
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // 매출건으 등록하기 위한 데이터가 없는 경우 안내 메세지를 보여주고 메소드 실행을 중지한다
             if (txtCustomer.Text.Length == 0 || txtItem.Text.Length == 0 || txtQty.Text.Length == 0 || txtPrice.Text.Length == 0)
             {
                 MessageBox.Show("고객명, 상품명, 수량 및 가격을 확인하세요");
                 return;
             }
+            // 매출건 등록을 위한 데이터를 화면 디자인 개체에서 가져오는 코드
             int salecode = NewSaleCode();
             string customer = txtCustomer.Text;
             string item = txtItem.Text;
             DateTime date = dtDate.Value;
             int qty = int.Parse(txtQty.Text);
             int price = int.Parse(txtPrice.Text);
-
             conn.Open();
             string query = String.Format("insert into sales (salecode, customer, item, date, qty, price) values (@salecode, @customer, @item, @date, @qty, @price)");
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -83,6 +83,35 @@ namespace salesForm_ex
             cmd.ExecuteNonQuery();
             conn.Close();
             LoadList();
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (saleList.SelectedItems.Count > 0)
+            {
+                string salecode = saleList.SelectedItems[0].SubItems[0].Text;
+                conn.Open();
+                string query = String.Format("delete from sales where salecode = @salecode");
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@salecode",salecode);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                LoadList();
+            }
+        }
+        private void btnCustomerSales_Click(object sender, EventArgs e)
+        {
+            txtAnalysis.Text = "";
+            conn.Open();
+            string query = "select customer, sum(price) from sales group by customer";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader r = cmd.ExecuteReader();
+            txtAnalysis.Text = "고객명 \t 누적판매금액 \r\n";
+            while (r.Read())
+            {
+                string row = String.Format("{0}\t{1}\r\n", r[0].ToString(), r[1].ToString());
+                txtAnalysis.Text = row;
+            }
+            conn.Close();
         }
     }
 }

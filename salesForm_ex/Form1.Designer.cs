@@ -39,17 +39,17 @@
             this.txtQty = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.saleList = new System.Windows.Forms.ListView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnCustomerSales = new System.Windows.Forms.Button();
-            this.btnItemSales = new System.Windows.Forms.Button();
-            this.txtAnalysis = new System.Windows.Forms.ListView();
             this.매출번호 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.고객명 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.제품명 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.판매날짜 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.판매갯수 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.판매금액 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCustomerSales = new System.Windows.Forms.Button();
+            this.btnItemSales = new System.Windows.Forms.Button();
+            this.txtAnalysis = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtCustomer
@@ -141,6 +141,7 @@
             this.판매날짜,
             this.판매갯수,
             this.판매금액});
+            this.saleList.GridLines = true;
             this.saleList.HideSelection = false;
             this.saleList.Location = new System.Drawing.Point(12, 123);
             this.saleList.Name = "saleList";
@@ -148,55 +149,6 @@
             this.saleList.TabIndex = 10;
             this.saleList.UseCompatibleStateImageBehavior = false;
             this.saleList.View = System.Windows.Forms.View.Details;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(704, 123);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(84, 37);
-            this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "매출 등록";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(704, 166);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(84, 31);
-            this.btnDelete.TabIndex = 13;
-            this.btnDelete.Text = "매출 삭제";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnCustomerSales
-            // 
-            this.btnCustomerSales.Location = new System.Drawing.Point(676, 311);
-            this.btnCustomerSales.Name = "btnCustomerSales";
-            this.btnCustomerSales.Size = new System.Drawing.Size(120, 43);
-            this.btnCustomerSales.TabIndex = 14;
-            this.btnCustomerSales.Text = "고객별 판매금액 분석";
-            this.btnCustomerSales.UseVisualStyleBackColor = true;
-            // 
-            // btnItemSales
-            // 
-            this.btnItemSales.Location = new System.Drawing.Point(676, 375);
-            this.btnItemSales.Name = "btnItemSales";
-            this.btnItemSales.Size = new System.Drawing.Size(120, 47);
-            this.btnItemSales.TabIndex = 15;
-            this.btnItemSales.Text = "제품별 판매금액 분석";
-            this.btnItemSales.UseVisualStyleBackColor = true;
-            // 
-            // txtAnalysis
-            // 
-            this.txtAnalysis.FullRowSelect = true;
-            this.txtAnalysis.GridLines = true;
-            this.txtAnalysis.HideSelection = false;
-            this.txtAnalysis.Location = new System.Drawing.Point(12, 311);
-            this.txtAnalysis.Name = "txtAnalysis";
-            this.txtAnalysis.Size = new System.Drawing.Size(658, 127);
-            this.txtAnalysis.TabIndex = 16;
-            this.txtAnalysis.UseCompatibleStateImageBehavior = false;
-            this.txtAnalysis.View = System.Windows.Forms.View.Details;
             // 
             // 매출번호
             // 
@@ -227,6 +179,53 @@
             // 
             this.판매금액.Text = "판매금액";
             this.판매금액.Width = 80;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(704, 123);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(84, 37);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "매출 등록";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(704, 166);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(84, 31);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "매출 삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnCustomerSales
+            // 
+            this.btnCustomerSales.Location = new System.Drawing.Point(676, 311);
+            this.btnCustomerSales.Name = "btnCustomerSales";
+            this.btnCustomerSales.Size = new System.Drawing.Size(120, 43);
+            this.btnCustomerSales.TabIndex = 14;
+            this.btnCustomerSales.Text = "고객별 판매금액 분석";
+            this.btnCustomerSales.UseVisualStyleBackColor = true;
+            this.btnCustomerSales.Click += new System.EventHandler(this.btnCustomerSales_Click);
+            // 
+            // btnItemSales
+            // 
+            this.btnItemSales.Location = new System.Drawing.Point(676, 375);
+            this.btnItemSales.Name = "btnItemSales";
+            this.btnItemSales.Size = new System.Drawing.Size(120, 47);
+            this.btnItemSales.TabIndex = 15;
+            this.btnItemSales.Text = "제품별 판매금액 분석";
+            this.btnItemSales.UseVisualStyleBackColor = true;
+            // 
+            // txtAnalysis
+            // 
+            this.txtAnalysis.Location = new System.Drawing.Point(12, 293);
+            this.txtAnalysis.Multiline = true;
+            this.txtAnalysis.Name = "txtAnalysis";
+            this.txtAnalysis.Size = new System.Drawing.Size(658, 164);
+            this.txtAnalysis.TabIndex = 16;
             // 
             // Form1
             // 
@@ -274,13 +273,13 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCustomerSales;
         private System.Windows.Forms.Button btnItemSales;
-        private System.Windows.Forms.ListView txtAnalysis;
         private System.Windows.Forms.ColumnHeader 매출번호;
         private System.Windows.Forms.ColumnHeader 고객명;
         private System.Windows.Forms.ColumnHeader 제품명;
         private System.Windows.Forms.ColumnHeader 판매날짜;
         private System.Windows.Forms.ColumnHeader 판매갯수;
         private System.Windows.Forms.ColumnHeader 판매금액;
+        private System.Windows.Forms.TextBox txtAnalysis;
     }
 }
 
