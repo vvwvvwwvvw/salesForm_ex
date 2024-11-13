@@ -64,7 +64,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 19);
+            this.label1.Size = new System.Drawing.Size(62, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "고객명 :";
             // 
@@ -89,7 +89,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 19);
+            this.label3.Size = new System.Drawing.Size(72, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "판매 날짜";
             // 
@@ -105,7 +105,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(335, 83);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 19);
+            this.label4.Size = new System.Drawing.Size(82, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "판매 개수 :";
             // 
@@ -114,7 +114,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(547, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 19);
+            this.label5.Size = new System.Drawing.Size(82, 15);
             this.label5.TabIndex = 7;
             this.label5.Text = "판매 금액 :";
             // 
@@ -147,21 +147,23 @@
             this.saleList.Size = new System.Drawing.Size(658, 164);
             this.saleList.TabIndex = 10;
             this.saleList.UseCompatibleStateImageBehavior = false;
+            this.saleList.View = System.Windows.Forms.View.Details;
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(704, 123);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(84, 23);
+            this.btnAdd.Size = new System.Drawing.Size(84, 37);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "매출 등록";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(704, 166);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(84, 23);
+            this.btnDelete.Size = new System.Drawing.Size(84, 31);
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "매출 삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -186,35 +188,44 @@
             // 
             // txtAnalysis
             // 
+            this.txtAnalysis.FullRowSelect = true;
+            this.txtAnalysis.GridLines = true;
             this.txtAnalysis.HideSelection = false;
             this.txtAnalysis.Location = new System.Drawing.Point(12, 311);
             this.txtAnalysis.Name = "txtAnalysis";
             this.txtAnalysis.Size = new System.Drawing.Size(658, 127);
             this.txtAnalysis.TabIndex = 16;
             this.txtAnalysis.UseCompatibleStateImageBehavior = false;
+            this.txtAnalysis.View = System.Windows.Forms.View.Details;
             // 
             // 매출번호
             // 
+            this.매출번호.Text = "매출번호";
             this.매출번호.Width = 80;
             // 
             // 고객명
             // 
+            this.고객명.Text = "고객명";
             this.고객명.Width = 80;
             // 
             // 제품명
             // 
+            this.제품명.Text = "제품명";
             this.제품명.Width = 80;
             // 
             // 판매날짜
             // 
+            this.판매날짜.Text = "판매날짜";
             this.판매날짜.Width = 80;
             // 
             // 판매갯수
             // 
+            this.판매갯수.Text = "판매갯수";
             this.판매갯수.Width = 80;
             // 
             // 판매금액
             // 
+            this.판매금액.Text = "판매금액";
             this.판매금액.Width = 80;
             // 
             // Form1

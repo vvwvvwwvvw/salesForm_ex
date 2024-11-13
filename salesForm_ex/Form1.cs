@@ -17,9 +17,7 @@ namespace salesForm_ex
         public Form1()
         {
             InitializeComponent();
-            txtAnalysis.FullRowSelect = true;
-            txtAnalysis.GridLines = true;
-            txtAnalysis.View = View.Details;
+           
         }
         public void LoadList()
         {
@@ -31,10 +29,8 @@ namespace salesForm_ex
             string[] fields = new string[6];
             while (r.Read())
             {
-                for (int i = 0; i < fields.Length; i++)
-                {
-                    fields[i] = r[i].ToString();
-                }
+                for (int i = 0; i < 6; i++)
+                fields[i] = r[i].ToString();
                 fields[3] = fields[3].Substring(0, 10);
                 ListViewItem row = new ListViewItem(fields);
                 saleList.Items.Add(row);
@@ -58,7 +54,35 @@ namespace salesForm_ex
                 salecode = int.Parse(r[0].ToString());
             }
             r.Close();
+            conn.Close();
             return salecode;
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtCustomer.Text.Length == 0 || txtItem.Text.Length == 0 || txtQty.Text.Length == 0 || txtPrice.Text.Length == 0)
+            {
+                MessageBox.Show("고객명, 상품명, 수량 및 가격을 확인하세요");
+                return;
+            }
+            int salecode = NewSaleCode();
+            string customer = txtCustomer.Text;
+            string item = txtItem.Text;
+            DateTime date = dtDate.Value;
+            int qty = int.Parse(txtQty.Text);
+            int price = int.Parse(txtPrice.Text);
+
+            conn.Open();
+            string query = String.Format("insert into sales (salecode, customer, item, date, qty, price) values (@salecode, @customer, @item, @date, @qty, @price)");
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@salecode",salecode);
+            cmd.Parameters.AddWithValue("@customer",customer);
+            cmd.Parameters.AddWithValue("@item",item);
+            cmd.Parameters.AddWithValue("@date",date);
+            cmd.Parameters.AddWithValue("@qty",qty);
+            cmd.Parameters.AddWithValue("@price",price);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            LoadList();
         }
     }
 }
