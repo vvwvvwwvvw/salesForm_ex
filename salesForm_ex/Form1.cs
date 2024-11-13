@@ -23,11 +23,11 @@ namespace salesForm_ex
         }
         public void LoadList()
         {
-            saleList.Items.Clear();
+            saleList.Items.Clear(); // 매출 데이터 행 삭제
             conn.Open(); // DB 오픈
             string query = "select * from sales";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataReader r = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(query, conn); // DB에서 데이터 조회실행
+            SqlDataReader r = cmd.ExecuteReader(); // 조회된 값 저장
             string[] fields = new string[6];
             while (r.Read())
             {
@@ -39,7 +39,26 @@ namespace salesForm_ex
                 ListViewItem row = new ListViewItem(fields);
                 saleList.Items.Add(row);
             }
-            conn.Close();
+            conn.Close(); // DB 닫기
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadList();
+        }
+        public int NewSaleCode()
+        {
+            conn.Open();
+            string query = "select max(salecode)+1 from sales";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader r = cmd.ExecuteReader();
+            r.Read();
+            int salecode = 1;
+            if (r[0].ToString().Length > 0)
+            {
+                salecode = int.Parse(r[0].ToString());
+            }
+            r.Close();
+            return salecode;
         }
     }
 }
