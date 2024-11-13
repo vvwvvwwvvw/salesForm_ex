@@ -39,11 +39,17 @@
             this.txtQty = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.saleList = new System.Windows.Forms.ListView();
-            this.txtAnalysis = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCustomerSales = new System.Windows.Forms.Button();
             this.btnItemSales = new System.Windows.Forms.Button();
+            this.txtAnalysis = new System.Windows.Forms.ListView();
+            this.매출번호 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.고객명 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.제품명 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.판매날짜 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.판매갯수 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.판매금액 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // txtCustomer
@@ -128,20 +134,19 @@
             // 
             // saleList
             // 
+            this.saleList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.매출번호,
+            this.고객명,
+            this.제품명,
+            this.판매날짜,
+            this.판매갯수,
+            this.판매금액});
             this.saleList.HideSelection = false;
             this.saleList.Location = new System.Drawing.Point(12, 123);
             this.saleList.Name = "saleList";
             this.saleList.Size = new System.Drawing.Size(658, 164);
             this.saleList.TabIndex = 10;
             this.saleList.UseCompatibleStateImageBehavior = false;
-            // 
-            // txtAnalysis
-            // 
-            this.txtAnalysis.Location = new System.Drawing.Point(12, 293);
-            this.txtAnalysis.Multiline = true;
-            this.txtAnalysis.Name = "txtAnalysis";
-            this.txtAnalysis.Size = new System.Drawing.Size(658, 145);
-            this.txtAnalysis.TabIndex = 11;
             // 
             // btnAdd
             // 
@@ -179,16 +184,49 @@
             this.btnItemSales.Text = "제품별 판매금액 분석";
             this.btnItemSales.UseVisualStyleBackColor = true;
             // 
+            // txtAnalysis
+            // 
+            this.txtAnalysis.HideSelection = false;
+            this.txtAnalysis.Location = new System.Drawing.Point(12, 311);
+            this.txtAnalysis.Name = "txtAnalysis";
+            this.txtAnalysis.Size = new System.Drawing.Size(658, 127);
+            this.txtAnalysis.TabIndex = 16;
+            this.txtAnalysis.UseCompatibleStateImageBehavior = false;
+            // 
+            // 매출번호
+            // 
+            this.매출번호.Width = 80;
+            // 
+            // 고객명
+            // 
+            this.고객명.Width = 80;
+            // 
+            // 제품명
+            // 
+            this.제품명.Width = 80;
+            // 
+            // 판매날짜
+            // 
+            this.판매날짜.Width = 80;
+            // 
+            // 판매갯수
+            // 
+            this.판매갯수.Width = 80;
+            // 
+            // 판매금액
+            // 
+            this.판매금액.Width = 80;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtAnalysis);
             this.Controls.Add(this.btnItemSales);
             this.Controls.Add(this.btnCustomerSales);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtAnalysis);
             this.Controls.Add(this.saleList);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtQty);
@@ -220,11 +258,17 @@
         private System.Windows.Forms.TextBox txtQty;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.ListView saleList;
-        private System.Windows.Forms.TextBox txtAnalysis;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCustomerSales;
         private System.Windows.Forms.Button btnItemSales;
+        private System.Windows.Forms.ListView txtAnalysis;
+        private System.Windows.Forms.ColumnHeader 매출번호;
+        private System.Windows.Forms.ColumnHeader 고객명;
+        private System.Windows.Forms.ColumnHeader 제품명;
+        private System.Windows.Forms.ColumnHeader 판매날짜;
+        private System.Windows.Forms.ColumnHeader 판매갯수;
+        private System.Windows.Forms.ColumnHeader 판매금액;
     }
 }
 
